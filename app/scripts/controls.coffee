@@ -18,7 +18,8 @@ $.getJSON "/controls/all", (data)->
     console.log(ctrl,action)
     $.post "/controls/#{ctrl}/#{action}", (data)->
       console.log(data)
-      alertify.log "Command sent."
+      data = JSON.parse data
+      alertify.log(data.output)
 
     return true
 
